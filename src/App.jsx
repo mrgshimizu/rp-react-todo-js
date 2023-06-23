@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ColorfulMessage from "./components/ColorfulMessage";
+import { ColorfulMessage } from "./components/ColorfulMessage";
 const App = () => {
   console.log("さいしょ");
   const [num, setNum] = useState(0);
@@ -13,15 +13,15 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect!!");
-  }, [num]);
-  if (num > 0) {
-    if (num % 3 === 0) {
-      faceShowFlag || setFaceShowFlag(true);
-    } else {
-      faceShowFlag && setFaceShowFlag(false);
+    if (num > 0) {
+      if (num % 3 === 0) {
+        faceShowFlag || setFaceShowFlag(true);
+      } else {
+        faceShowFlag && setFaceShowFlag(false);
+      }
     }
-  }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [num]);
 
   return (
     <>
